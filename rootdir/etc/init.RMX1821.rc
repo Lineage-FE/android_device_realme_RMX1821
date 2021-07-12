@@ -25,6 +25,11 @@ on boot
 on init
     mount none /vendor/lost+found /vendor/overlay bind
 
+    # Silead
+    mount none /dev/null vendor/lib/fingerprint.silead.default.so bind
+    mount none /dev/null vendor/lib64/fingerprint.silead.default.so bind
+    mount none /dev/null vendor/lib64/vendor.silead.hardware.fingerprintext@1.0.so bind
+
 on post-fs
     # Unmount the overridden fstab because the SELinux label is incorrect
     # and some MTK daemons can crash because of that
